@@ -26,12 +26,6 @@ class Parker1958(object):
         Number density of protons [cm^{-3}].
     v : ndarray
         Radial velocity of the wind [cm s^{-1}].
-
-
-    Methods
-    -------
-    flux(P)
-        Scales the basic flux F74113 with a given proxy P.
     """
 
     ## Temperature grid [K]

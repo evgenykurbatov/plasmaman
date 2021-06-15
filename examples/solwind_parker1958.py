@@ -23,6 +23,7 @@ from plasmaman.models.solwind_parker1958 import Parker1958
 wind = Parker1958()
 
 
+
 ##
 ## Plot
 ##
@@ -65,8 +66,6 @@ ax_.set_ylabel(r"$N v^2$ [cm$^{-1}$ s$^{-2}$]")
 ax_.legend()
 ax2_ = ax_.twinx()
 Nv2_min, Nv2_max = ax_.get_ylim()
-print(Nv2_min, Nv2_max)
-print(m_p*Nv2_min/(1e-3*mbar), m_p*Nv2_max/(1e-3*mbar))
 ax2_.set_ylim((m_p*Nv2_min/(1e-3*mbar), m_p*Nv2_max/(1e-3*mbar)))
 ax2_.set_yscale('log')
 ax2_.set_ylabel(r"$m_\mathrm{p} N v^2$ [$\mu$bar]")
