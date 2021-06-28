@@ -93,7 +93,7 @@ def transition_fb(T, n_min=1, n_max=6, Z=1):
 
 
 def cooling_fb_n(T, n, Z=1):
-    """Cooling rate in free-bound transitions to the 'n'-th state [erg cm^3/s]"""
+    """Electron gas cooling rate in free-bound transitions to the 'n'-th state [erg cm^3/s]"""
     kT = k_B*T
     eta = ionization_energy(n, Z) / kT
     ## Some workaround to avoid overflow in exponent
@@ -108,9 +108,9 @@ def cooling_fb_n(T, n, Z=1):
     return mul * kT * n*eta**3 * (1 - eta*exp_E1)
 
 
-def cooling_fb(T, n, n_max=6, Z=1):
-    """"""
-    return np.array([ cooling_fb_n(T, n_, Z)  for n_ in range(1, n_max) ]).sum(axis=0)
+def cooling_fb(T, n_min=1, n_max=6, Z=1):
+    """Electron gas cooling rate in free-bound transitions [erg cm^3/s]"""
+    return np.array([ cooling_fb_n(T, n_, Z)  for n_ in range(n_min, n_max) ]).sum(axis=0)
 
 
 def emission_fb_n(T, n, Z=1):
