@@ -9,13 +9,16 @@ from plasmaman.plte import *
 
 
 
+## Log number density [cm-3]
 N = np.logspace(3, 16, 400)
+## Log ionization fraction
 x = np.logspace(-3, 0, 200)
 
 N_mesh, x_mesh = np.meshgrid(N, x)
 
+## Fundamental (Langmuir) wave length
 lam_pe = 2*pi*c / plasma_fundamental_freq(x_mesh*N_mesh)
-
+## Distance between ions
 lam_elem = (x_mesh*N_mesh)**(-1/3)
 
 
